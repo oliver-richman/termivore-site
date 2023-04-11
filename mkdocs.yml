@@ -1,0 +1,45 @@
+site_name: Termivore
+copyright: Copyright &copy; 2023 Oliver Richman
+repo_url: https://github.com/oliver-richman/termivore
+repo_name: termivore
+nav:
+    - Home: index.md
+    - Getting Started: getting-started.md
+    - Features:
+      - Logger: features/logger.md
+      - CLI Commands: features/cli-commands.md
+      - Spinner: features/spinner.md
+      - Prompt: features/prompt.md
+      - Open Link: features/open-link.md
+theme:
+  name: material
+  logo: assets/termivore-logo.svg
+  favicon: assets/termivore-logo.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.copy
+    - navigation.top
+  palette: 
+    primary: white
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/oliver-richman/termivore
+    - icon: fontawesome/brands/npm 
+      link: https://www.npmjs.com/package/termivore
+    - icon: fontawesome/brands/linkedin 
+      link: https://www.linkedin.com/in/oliverrichman52/
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+
