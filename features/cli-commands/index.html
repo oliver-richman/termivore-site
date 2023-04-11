@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#cli-commands" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -284,10 +289,64 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          CLI Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         CLI Commands
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-cli" class="md-nav__link">
+    Create the CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-command" class="md-nav__link">
+    Add a Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-arguments-to-a-command" class="md-nav__link">
+    Add Arguments to a Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-options-to-a-command" class="md-nav__link">
+    Add options to a Command
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -342,6 +401,51 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-your-cli-locally/" class="md-nav__link">
+        Using Your CLI Locally
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../publishing-your-cli/" class="md-nav__link">
+        Publishing Your CLI
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../node-cli-info/" class="md-nav__link">
+        Node.js/NPM CLI Information
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -359,6 +463,44 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-cli" class="md-nav__link">
+    Create the CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-command" class="md-nav__link">
+    Add a Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-arguments-to-a-command" class="md-nav__link">
+    Add Arguments to a Command
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-options-to-a-command" class="md-nav__link">
+    Add options to a Command
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -376,9 +518,48 @@
   
 
 
-  <h1>CLI Commands</h1>
-
-
+<h1 id="cli-commands">CLI Commands</h1>
+<p>Termivore has a built in way to create a CLI with functioning commands, plus some built in features such as a help command and a -v version flag.</p>
+<p>If you're looking to setup a new CLI, it's recommended you <a href="../../getting-started/#termivore-cli">use the termivore CLI</a> to spin up your project, if you wish to do it manually you can follow this section.</p>
+<h2 id="create-the-cli">Create the CLI</h2>
+<div class="admonition info">
+<p class="admonition-title">Set up your command</p>
+<p>To actually use your CLI, you will need to setup a few things first, please see our page on <a href="../../node-cli-info/">Node.js/NPM CLI Information</a></p>
+</div>
+<p>Once your package.json file is setup correctly and you have made your entry file executable you can use Termivore's <code>CLI</code> class to create your CLI.</p>
+<p>You can do this like so:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript/ES6</label><label for="__tabbed_1_2">JavaScript/CommonJS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/usr/bin/env node</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CLI</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;termivore&#39;</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myCli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">CLI</span><span class="p">(</span><span class="s1">&#39;rootCommand&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1.0.0&#39;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// Commands go here</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">myCli</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/usr/bin/env node</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">termivore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;termivore&#39;</span><span class="p">);</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">myCli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">termivore</span><span class="p">.</span><span class="nx">CLI</span><span class="p">(</span><span class="s1">&#39;rootCommand&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1.0.0&#39;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1">// Commands go here</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nx">myCli</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>The above will create and start a CLI (with no commands, yet...) which will have a help command and a -v option for checking version.
+See the <a href="#add-a-command">next section</a> for adding commands to your CLI.</p>
+<p>Ensure that you don't attempt to add commands or alter <code>myCli</code> (or whatever your CLI variable is named) after you call the <code>start()</code> command as those additions won't be reflected in the CLI.</p>
+<h2 id="add-a-command">Add a Command</h2>
+<h2 id="add-arguments-to-a-command">Add Arguments to a Command</h2>
+<h2 id="add-options-to-a-command">Add options to a Command</h2>
 
 
 
